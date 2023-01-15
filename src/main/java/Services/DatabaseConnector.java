@@ -85,7 +85,7 @@ public class DatabaseConnector {
     public ResultSet loginPerson(String pesel, String userPassword){
         if(openConnection()){
             try{
-                return this.statement.executeQuery("SELECT person_id FROM persons WHERE pesel = '"+pesel+"' AND password = '"+userPassword+"'");
+                return this.statement.executeQuery("SELECT * FROM persons WHERE pesel = '"+pesel+"' AND password = '"+userPassword+"'");
             }catch (SQLException error){
                 System.out.println(error);
                 return null;
