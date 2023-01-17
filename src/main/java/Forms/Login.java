@@ -26,6 +26,7 @@ public class Login extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 DatabaseConnector connector = new DatabaseConnector();
                 ResultSet result =  connector.loginPerson(loginTextField.getText(), passwordTextField.getText());
+                new CarConfiguration();
                 try {
                     result.next();
                 } catch (SQLException throwables) {
