@@ -7,4 +7,5 @@ public class ClientPanel {
     private JButton viewAvailableCarsButton;
     private JScrollPane orderdCarsList;
     private JButton warrantyClaimButton;
+    private JButton logOutButton;
 }

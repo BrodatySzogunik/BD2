@@ -7,4 +7,5 @@ public class WarrantyWorker {
     private JScrollPane warrantyList;
     private JButton acceptButton;
     private JButton rejectButton;
+    private JButton returnButton;
 }

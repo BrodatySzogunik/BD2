@@ -11,6 +11,8 @@ public class CarConfiguration extends JFrame{
     private JComboBox gearBox;
     private JComboBox interiorColor;
     private JComboBox wheels;
+    private JButton returnButton;
+    private JButton proccedButton;
 
     public CarConfiguration(){
         setSize(200,200);
