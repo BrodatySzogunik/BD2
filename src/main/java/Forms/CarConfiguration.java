@@ -6,6 +6,8 @@ import DbModels.Wheel;
 import Services.CarConfigurationService;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CarConfiguration extends JFrame{
     private JComboBox firstColor;
@@ -22,15 +24,25 @@ public class CarConfiguration extends JFrame{
     private JTextField priceTextField;
 
     public CarConfiguration(){
-        setSize(400,500);
-        setTitle("Car configuration");
+        setSize(500,500);
+        setTitle("Car Configuration");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(CarConfiguration);
         initializeEngines();
         initializeModels();
         initializeWheels();
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        reutrnButtonListener();
+    }
 
+    private void reutrnButtonListener(){
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
 

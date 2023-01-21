@@ -1,12 +1,36 @@
 package Forms;
 
-import javax.swing.*;
+import DbModels.Person;
 
-public class WorkerPanel {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class WorkerPanel extends JFrame{
     private JButton createClientAccountButton;
     private JButton editAvailableOffersButton;
     private JButton warrantyClaimsButton;
     private JButton logOutButton;
     private JButton placedOrdersButton;
     private JButton workersListButton;
+    private JPanel WorkerPanel;
+
+    public WorkerPanel(){
+        setSize(500,500);
+        setTitle("Worker: ");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setContentPane(WorkerPanel);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        logOutButtonListener();
+    }
+
+    private void logOutButtonListener(){
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+    }
 }

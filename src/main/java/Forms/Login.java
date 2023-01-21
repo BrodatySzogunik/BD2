@@ -20,7 +20,7 @@ public class Login extends JFrame {
 
     public Login(){
         setSize(200,200);
-        setTitle("login");
+        setTitle("Login");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(LoginPanel);
         this.setVisible(true);
