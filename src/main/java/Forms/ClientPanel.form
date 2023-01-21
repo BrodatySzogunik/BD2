@@ -10,7 +10,9 @@
     <children>
       <component id="51c60" class="javax.swing.JButton" binding="configureCarButton" default-binding="true">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="128" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Configure Car"/>
@@ -18,7 +20,9 @@
       </component>
       <component id="11643" class="javax.swing.JButton" binding="viewAvailableCarsButton" default-binding="true">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="128" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="View available cars"/>
@@ -26,7 +30,7 @@
       </component>
       <scrollpane id="ce04c" binding="orderdCarsList">
         <constraints>
-          <grid row="1" column="1" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="4" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -34,7 +38,9 @@
       </scrollpane>
       <component id="c5159" class="javax.swing.JButton" binding="warrantyClaimButton" default-binding="true">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="128" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <hideActionText value="true"/>
@@ -43,18 +49,12 @@
       </component>
       <component id="82aa3" class="javax.swing.JButton" binding="logOutButton" default-binding="true">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="128" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Log out"/>
-        </properties>
-      </component>
-      <component id="9fd42" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Your orders:"/>
         </properties>
       </component>
     </children>

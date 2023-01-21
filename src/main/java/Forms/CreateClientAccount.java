@@ -14,4 +14,6 @@ public class CreateClientAccount {
     private JTextField street_text;
     private JTextField building_number_text;
     private JPasswordField password_pass_text;
+    private JCheckBox clientCheckBox;
+    private JCheckBox workerCheckBox;
 }
