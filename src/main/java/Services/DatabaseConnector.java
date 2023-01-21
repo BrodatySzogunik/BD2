@@ -3,7 +3,6 @@ package Services;
 import DbModels.*;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class DatabaseConnector {
     Connection connection;
@@ -57,18 +56,6 @@ public class DatabaseConnector {
 
     }
 
-    public boolean insertValueIntoPersons(String address,String firstName, String lastName,String pesel, String userPassword, String date, String personType){
-        if(openConnection()){
-            try{
-                return this.statement.execute("insert into persons values (null,'"+address+"','"+ date +"','"+firstName+"','"+lastName+"','"+pesel+"','"+userPassword+"','"+personType+"')");
-            }catch (SQLException error){
-                System.out.println(error);
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
 
     public boolean insertValueIntoClients(int personId){
         if(openConnection()){
@@ -149,7 +136,40 @@ public class DatabaseConnector {
     public void addCar(Car car){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engineId+"','"+car.gearboxId+"','"+car.interiorColorId+"','"+car.interiorColorId+"','"+car.mainColorId+"','"+car.modelId+"','"+car.wheelId+"')");
+                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engine_id +"','"+car.gearboxId+"','"+car.interiorColorId+"','"+car.interiorColorId+"','"+car.mainColorId+"','"+car.modelId+"','"+car.wheelId+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+
+    public void addAvailableCar(AvailableCar availableCar){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO available_Cars values (null,'"+availableCar.carId+"','"+availableCar.price+"','"+availableCar.procudtionYear+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+
+    public void addClient(Client client){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO clients values (null,'"+client.personId+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+
+    public void addPerson(Person person ){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO persons values (null,'"+person.address+"','"+person.birthDate+"','"+person.firstName+"','"+person.last_name+"','"+person.pesel+"','"+person.password+"','"+person.person_type+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }

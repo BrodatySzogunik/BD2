@@ -1,6 +1,7 @@
 package DbModels;
 
 public class AvailableCar {
+    public int carId;
     public int price;
-    public String procudtionYear;
+    public int procudtionYear;
 }

@@ -13,6 +13,8 @@ public class CarConfiguration extends JFrame{
     private JComboBox wheels;
     private JButton returnButton;
     private JButton proccedButton;
+    private JComboBox drivetrain;
+    private JTextField priceTextField;
 
     public CarConfiguration(){
         setSize(200,200);

@@ -1,11 +1,14 @@
 package Forms;
 
+import DbModels.Person;
+import Interfaces.PersonType;
 import Services.DatabaseConnector;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 public class Login extends JFrame {
@@ -21,19 +24,31 @@ public class Login extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(LoginPanel);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        loginButtonListener();
+    }
+
+    private void loginButtonListener(){
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DatabaseConnector connector = new DatabaseConnector();
                 ResultSet result =  connector.loginPerson(loginTextField.getText(), passwordTextField.getText());
-                new CarConfiguration();
                 try {
                     result.next();
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
                 try {
-                    System.out.println(result.getString("person_type"));
+                    String personType = result.getString("person_type");
+                    System.out.println(personType);
+                    Person person = new Person(result.getString("address"),result.getString("birth_date"),result.getString("first_name"),result.getString("last_name"),"","",result.getString("person_type"));
+                    if(personType.equals(PersonType.CLIENT)){
+                        new ClientPanel();
+                    }else if(personType ==  PersonType.WORKER){
+                        new WorkerPanel();
+                    }
+
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
