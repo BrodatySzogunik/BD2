@@ -2,7 +2,9 @@ package Services;
 
 import DbModels.*;
 import Interfaces.ColorType;
+import Interfaces.Status;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,6 +72,18 @@ public class CarConfigurationService {
             System.out.println(e);
             return null;
         }
+    }
+
+    public static void addNewOrder(String drivetrain, String engineId, String gearboxId, String additionalColorId, String interiorColorId, String mainColorId, String modelId, String wheelId, String clientId){
+        DatabaseConnector db = new DatabaseConnector();
+        Car car = new Car(drivetrain,engineId,gearboxId,additionalColorId,interiorColorId,mainColorId,modelId,wheelId);
+        String newCarId = db.addCar(car);
+        try{
+            db.addOrder(new Order(null,clientId,null,newCarId,null,DateService.ToString(LocalDate.now()), Status.NEW,"10"));
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 
 

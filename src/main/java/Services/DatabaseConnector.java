@@ -1,6 +1,8 @@
 package Services;
 
 import DbModels.*;
+import Interfaces.Status;
+import org.jdbi.v3.core.Jdbi;
 
 import java.sql.*;
 
@@ -10,10 +12,13 @@ public class DatabaseConnector {
     String url = "jdbc:mysql://localhost:3306/klapexdealer1";
     String userName = "ADMINISTRATOR";
     String password = "adminpassword";
+    Jdbi jdbiConnection;
+
 
 
 
     public DatabaseConnector(){
+        jdbiConnection = Jdbi.create(url,userName,password);
     }
 
     private boolean openConnection()  {
@@ -185,16 +190,13 @@ public class DatabaseConnector {
         }
     }
 
-    public void addCar(Car car){
-        if(openConnection()){
-            try{
-                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engine_id +"','"+car.gearbox_id +"','"+car.interior_color_id +"','"+car.interior_color_id +"','"+car.main_color_id +"','"+car.model_id +"','"+car.wheel_id +"')");
-            }catch (SQLException error){
-                System.out.println(error);
-            }
-        }
+    public String addCar(Car car){
+        return jdbiConnection.withHandle(handle -> {
+            handle.createUpdate("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engine_id +"','"+car.gearbox_id +"','"+car.interior_color_id +"','"+car.interior_color_id +"','"+car.main_color_id +"','"+car.model_id +"','"+car.wheel_id +"')")
+                    .execute();
+            return handle.createQuery("SELECT MAX(car_id) FROM cars").mapTo(String.class).one();
+        });
     }
-
 
     public void addAvailableCar(AvailableCar availableCar){
         if(openConnection()){
@@ -206,7 +208,6 @@ public class DatabaseConnector {
         }
     }
 
-
     public void addClient(Client client){
         if(openConnection()){
             try{
@@ -216,7 +217,6 @@ public class DatabaseConnector {
             }
         }
     }
-
 
     public void addPerson(Person person ){
         if(openConnection()){
@@ -228,8 +228,15 @@ public class DatabaseConnector {
         }
     }
 
-
-
+    public void addOrder(Order order){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO orders VALUES (null,'"+order.client_id+"',null,'"+order.order_car_id+"',null,'"+order.order_date+"','"+ Status.NEW +"','"+order.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
 
     public ResultSet loginPerson(String pesel, String userPassword){
         if(openConnection()){
@@ -242,10 +249,6 @@ public class DatabaseConnector {
         }else{
             return null;
         }
-
-
     }
-
-
 
 }

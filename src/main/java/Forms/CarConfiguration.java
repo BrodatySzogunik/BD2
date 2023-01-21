@@ -23,8 +23,10 @@ public class CarConfiguration extends JFrame{
     private JComboBox drivetrain;
     private JTextField priceTextField;
     private int price=0;
+    private String clientId;
 
-    public CarConfiguration(){
+    public CarConfiguration(String clientId){
+        this.clientId = clientId;
         setSize(500,500);
         setTitle("Car Configuration");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -38,6 +40,7 @@ public class CarConfiguration extends JFrame{
         initializeSecondColors();
         initializeInteriorColors();
         initializeSelectActionListener();
+        initializeProceedActionListener();
         this.priceTextField.setEditable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -49,6 +52,35 @@ public class CarConfiguration extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+    }
+
+
+    private void initializeProceedActionListener(){
+        this.proccedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(engine.getSelectedItem() != null
+                        && gearBox.getSelectedItem() != null
+                        && model.getSelectedItem() != null
+                        && firstColor.getSelectedItem() != null
+                        && secondaryColor.getSelectedItem() != null
+                        && interiorColor.getSelectedItem() != null
+                        && drivetrain.getSelectedItem() != null
+                        && wheels.getSelectedItem() != null){
+                    String engineId = ((Engine)engine.getSelectedItem()).engine_id;
+                    String gearboxId = ((Gearbox)gearBox.getSelectedItem()).gearbox_id;
+                    String modelId = ((Model)model.getSelectedItem()).model_id;
+                    String firstColorId = ((Color)firstColor.getSelectedItem()).color_id;
+                    String secondaryColorId = ((Color)secondaryColor.getSelectedItem()).color_id;
+                    String interiorColorId = ((Color)interiorColor.getSelectedItem()).color_id;
+                    String driveTrain = drivetrain.getSelectedItem().toString();
+                    String wheelId = ((Wheel)wheels.getSelectedItem()).wheel_id;
+                    CarConfigurationService.addNewOrder(driveTrain,engineId,gearboxId,secondaryColorId,interiorColorId,firstColorId,modelId,wheelId,clientId);
+                }
+
+
             }
         });
     }
@@ -139,6 +171,9 @@ public class CarConfiguration extends JFrame{
         }
         if(this.interiorColor.getSelectedItem() != null){
             localPrice += Integer.parseInt(((Color)this.interiorColor.getSelectedItem()).price);
+        }
+        if(this.wheels.getSelectedItem() != null){
+            localPrice += Integer.parseInt(((Wheel)this.wheels.getSelectedItem()).price);
         }
         this.price = localPrice ;
         this.priceTextField.setText(String.valueOf(this.price));

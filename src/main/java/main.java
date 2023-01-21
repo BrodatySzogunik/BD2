@@ -4,9 +4,11 @@ import Forms.Login;
 import Interfaces.*;
 import Services.CarConfigurationService;
 import Services.DatabaseConnector;
+import Services.DateService;
 import Services.ResultSetConverter;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class main {
     public static void main(String[] args) throws Exception {
@@ -39,8 +41,10 @@ public class main {
 //        connector.addColor(new Color("Blue", ColorType.SECONDARY,"2000"));
 //        connector.addColor(new Color("Blue", ColorType.INTERIOR,"2000"));
 
-        new CarConfiguration();
+        new CarConfiguration("1");
 
+//
+//        connector.addCar(new Car("1","1","1","1","1","1","1","1","1",))
 
 
 //        ResultSet response =  connector.loginPerson("21374206966","dupa123");
