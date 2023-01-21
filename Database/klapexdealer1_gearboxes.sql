@@ -29,10 +29,21 @@ CREATE TABLE `gearboxes` (
   `gearbox_code` varchar(5) NOT NULL,
   `gearbox_type` varchar(30) NOT NULL,
   `gears_number` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`gearbox_id`),
   UNIQUE KEY `gearbox_id_UNIQUE` (`gearbox_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gearboxes`
+--
+
+LOCK TABLES `gearboxes` WRITE;
+/*!40000 ALTER TABLE `gearboxes` DISABLE KEYS */;
+INSERT INTO `gearboxes` VALUES (1,'HU1','AUTOMATIC',8,0),(2,'HU1','AUTOMATIC',12,28000);
+/*!40000 ALTER TABLE `gearboxes` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -62,4 +73,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:18
+-- Dump completed on 2023-01-21 14:10:01

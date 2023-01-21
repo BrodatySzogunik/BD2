@@ -28,10 +28,21 @@ CREATE TABLE `colors` (
   `color_id` int NOT NULL AUTO_INCREMENT,
   `color_name` varchar(30) NOT NULL,
   `color_type` varchar(30) NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`color_id`),
   UNIQUE KEY `color_id_UNIQUE` (`color_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `colors`
+--
+
+LOCK TABLES `colors` WRITE;
+/*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` VALUES (1,'dupa','interior',0),(2,'Red','PRIMARY',0),(3,'Red','PRIMARY',2000);
+/*!40000 ALTER TABLE `colors` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -67,4 +78,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:18
+-- Dump completed on 2023-01-21 14:10:02

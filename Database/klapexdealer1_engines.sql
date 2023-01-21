@@ -32,10 +32,21 @@ CREATE TABLE `engines` (
   `horse_power` int NOT NULL,
   `power` int NOT NULL,
   `torque` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`engine_id`),
   UNIQUE KEY `engine_id_UNIQUE` (`engine_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `engines`
+--
+
+LOCK TABLES `engines` WRITE;
+/*!40000 ALTER TABLE `engines` DISABLE KEYS */;
+INSERT INTO `engines` VALUES (1,2137,'RB43','PETROL',220,110,300,0),(2,2137,'RB43','PETROL',220,110,300,40000);
+/*!40000 ALTER TABLE `engines` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -65,4 +76,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:17
+-- Dump completed on 2023-01-21 14:10:02

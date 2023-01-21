@@ -36,8 +36,40 @@ CREATE TABLE `persons` (
   PRIMARY KEY (`person_id`),
   UNIQUE KEY `person_id_UNIQUE` (`person_id`),
   UNIQUE KEY `pesel_UNIQUE` (`pesel`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `persons`
+--
+
+LOCK TABLES `persons` WRITE;
+/*!40000 ALTER TABLE `persons` DISABLE KEYS */;
+INSERT INTO `persons` VALUES (1,'','1990-12-12','Marcin','gnap','21374206969','dupa123',NULL),(3,'Lipinki łużyckie łączna 43','1990-12-12','Marcin','gnap','21374206968','dupa123',NULL),(4,'Lipinki łużyckie łączna 43','2015-12-17','Marcin','gnap','21374206967','dupa123',NULL),(6,'wroc','2015-01-01','Janek','gnap','21374206966','dupa123','client'),(7,'Lipinki łużycke łączna 43','2000-11-03','Marcin','Ganp','21374202313','dupa','CLIENT'),(8,'Lipinki łużycke łączna 43','2000-11-03','Marcin','Ganp','21374202413','dupa','CLIENT'),(9,'Lipinki łużycke łączna 43','2000-11-03','Marcin','Ganp','21374202113','dupa','WORKER'),(11,'Lipinki łużycke łączna 43','2000-11-03','Marcin','Ganp','21374202112','dupa','WORKER'),(12,'Lipinki łużycke łączna 43','2000-11-03','Marcin','Ganp','21374202111','dupa','WORKER');
+/*!40000 ALTER TABLE `persons` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `persons_AFTER_INSERT` AFTER INSERT ON `persons` FOR EACH ROW BEGIN
+  IF (NEW.person_type = 'CLIENT') THEN
+        Insert into clients values(null,NEW.person_id);
+  END IF;
+  IF (NEW.person_type = 'WORKER') THEN
+		Insert into workers values(null,NEW.person_id,"CUSTODIAN");
+  END IF;  
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -84,4 +116,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:17
+-- Dump completed on 2023-01-21 14:10:02

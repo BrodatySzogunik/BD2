@@ -33,6 +33,15 @@ CREATE TABLE `available_cars` (
   CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `available_cars`
+--
+
+LOCK TABLES `available_cars` WRITE;
+/*!40000 ALTER TABLE `available_cars` DISABLE KEYS */;
+/*!40000 ALTER TABLE `available_cars` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -43,4 +52,4 @@ CREATE TABLE `available_cars` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:18
+-- Dump completed on 2023-01-21 14:10:02

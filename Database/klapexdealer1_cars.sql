@@ -50,8 +50,18 @@ CREATE TABLE `cars` (
   CONSTRAINT `main_color_id` FOREIGN KEY (`main_color_id`) REFERENCES `colors` (`color_id`),
   CONSTRAINT `model_id` FOREIGN KEY (`model_id`) REFERENCES `models` (`model_id`),
   CONSTRAINT `wheel_id` FOREIGN KEY (`wheel_id`) REFERENCES `wheels` (`wheel_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cars`
+--
+
+LOCK TABLES `cars` WRITE;
+/*!40000 ALTER TABLE `cars` DISABLE KEYS */;
+INSERT INTO `cars` VALUES (1,'AWD',1,1,1,1,1,1,1);
+/*!40000 ALTER TABLE `cars` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -98,4 +108,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-17 21:27:17
+-- Dump completed on 2023-01-21 14:10:02
