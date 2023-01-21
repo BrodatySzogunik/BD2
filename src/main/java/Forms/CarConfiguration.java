@@ -78,6 +78,7 @@ public class CarConfiguration extends JFrame{
                     String driveTrain = drivetrain.getSelectedItem().toString();
                     String wheelId = ((Wheel)wheels.getSelectedItem()).wheel_id;
                     CarConfigurationService.addNewOrder(driveTrain,engineId,gearboxId,secondaryColorId,interiorColorId,firstColorId,modelId,wheelId,clientId);
+                    dispose();
                 }
 
 

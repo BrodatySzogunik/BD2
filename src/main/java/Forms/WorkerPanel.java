@@ -14,8 +14,9 @@ public class WorkerPanel extends JFrame{
     private JButton placedOrdersButton;
     private JButton workersListButton;
     private JPanel WorkerPanel;
-
-    public WorkerPanel(){
+    private Person person;
+    public WorkerPanel(Person person){
+        this.person = person;
         setSize(500,500);
         setTitle("Worker: ");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

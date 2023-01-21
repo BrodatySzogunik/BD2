@@ -3,6 +3,7 @@ package Forms;
 import DbModels.Person;
 import Interfaces.PersonType;
 import Services.DatabaseConnector;
+import Services.LoginService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,24 +33,12 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DatabaseConnector connector = new DatabaseConnector();
-                ResultSet result =  connector.loginPerson(loginTextField.getText(), passwordTextField.getText());
-                try {
-                    result.next();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-                try {
-                    String personType = result.getString("person_type");
-                    System.out.println(personType);
-                    if(personType.equals(PersonType.CLIENT)){
-                        new ClientPanel();
-                    }else if(personType ==  PersonType.WORKER){
-                        new WorkerPanel();
-                    }
-
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                Person person = LoginService.login(loginTextField.getText(), passwordTextField.getText());
+                String personType = person.person_type;
+                if(personType.equals(PersonType.CLIENT)){
+                    new ClientPanel(person);
+                }else if(personType ==  PersonType.WORKER){
+                    new WorkerPanel();
                 }
             }
         });

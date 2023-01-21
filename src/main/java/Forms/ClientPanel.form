@@ -34,7 +34,12 @@
         </constraints>
         <properties/>
         <border type="none"/>
-        <children/>
+        <children>
+          <component id="cf873" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
       </scrollpane>
       <component id="c5159" class="javax.swing.JButton" binding="warrantyClaimButton" default-binding="true">
         <constraints>
