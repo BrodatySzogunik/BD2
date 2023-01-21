@@ -13,7 +13,7 @@ public class WarrantyWorker extends JFrame{
 
     public WarrantyWorker(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Warranty Claims");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(WarrantyWorker);
         this.setVisible(true);

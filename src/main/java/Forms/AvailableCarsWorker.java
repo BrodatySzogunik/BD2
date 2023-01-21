@@ -31,7 +31,7 @@ public class AvailableCarsWorker extends JFrame{
 
     public AvailableCarsWorker(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Editing Available Cars");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(availableCarsWorker);
         this.setVisible(true);

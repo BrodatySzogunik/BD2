@@ -13,7 +13,7 @@ public class WorkerList extends JFrame{
 
     public WorkerList(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Workers List");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(WorkerList);
         this.setVisible(true);

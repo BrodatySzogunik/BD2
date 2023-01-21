@@ -22,7 +22,7 @@ public class CreateClientAccount extends JFrame{
 
     public CreateClientAccount(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Create Client Account");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(createClientAccount);
         this.setVisible(true);

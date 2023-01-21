@@ -17,7 +17,7 @@ public class availableCars extends JFrame{
 
     public availableCars(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Available Cars");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(availableCars);
         this.setVisible(true);

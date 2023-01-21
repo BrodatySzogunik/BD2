@@ -12,7 +12,7 @@ public class PlacedOrders extends JFrame{
 
     public PlacedOrders(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Placed Orders");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(PlacedOrders);
         this.setVisible(true);

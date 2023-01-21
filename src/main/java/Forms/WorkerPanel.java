@@ -1,5 +1,7 @@
 package Forms;
 
+import DbModels.Person;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +17,7 @@ public class WorkerPanel extends JFrame{
 
     public WorkerPanel(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Worker: ");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(WorkerPanel);
         this.setVisible(true);

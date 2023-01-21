@@ -20,7 +20,7 @@ public class CarConfiguration extends JFrame{
 
     public CarConfiguration(){
         setSize(500,500);
-        setTitle("login");
+        setTitle("Car Configuration");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(CarConfiguration);
         this.setVisible(true);
