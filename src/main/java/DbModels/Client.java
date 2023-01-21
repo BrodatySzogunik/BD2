@@ -1,10 +1,13 @@
 package DbModels;
 
 public class Client {
-    public int client_id;
-    public int person_id;
+    public String client_id;
+    public String person_id;
 
-    public Client(int client_id, int person_id) {
+    public Client() {
+    }
+
+    public Client(String client_id, String person_id) {
         this.client_id = client_id;
         this.person_id = person_id;
     }

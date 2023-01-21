@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ResultSetConverter {
-    public static ArrayList resultSetToArrayList (ResultSet result, Class classType) throws Exception {
+    public static <T> ArrayList<T> resultSetToArrayList (ResultSet result, Class<T> classType) throws Exception {
         Field[] fields = classType.getDeclaredFields();
         for(Field field : fields){
             field.setAccessible(true);
         }
-        ArrayList list = new ArrayList<>();
+        ArrayList <T> list = new ArrayList<T>();
         while(result.next()){
 
-            Object dataTransferObject = classType.getConstructor().newInstance();
+            T dataTransferObject = classType.getConstructor().newInstance();
 
             for(Field field : fields){
                 String name = field.getName();

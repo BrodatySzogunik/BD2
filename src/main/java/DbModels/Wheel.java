@@ -1,16 +1,19 @@
 package DbModels;
 
 public class Wheel {
-    public int wheel_id;
-    public int color_id;
-    public int diameter;
-    public int ET;
+    public String wheel_id;
+    public String color_id;
+    public String diameter;
+    public String ET;
     public String producer;
-    public float weight;
-    public int width;
-    public int price;
+    public String weight;
+    public String width;
+    public String price;
 
-    public Wheel(int wheelId, int colorId, int diameter, int ET, String producer, float weight, int width, int price) {
+    public Wheel() {
+    }
+
+    public Wheel(String wheelId, String colorId, String diameter, String ET, String producer, String weight, String width, String price) {
         this.wheel_id = wheelId;
         this.color_id = colorId;
         this.diameter = diameter;

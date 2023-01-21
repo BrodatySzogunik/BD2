@@ -1,16 +1,19 @@
 package DbModels;
 
 public class Order {
-    public int order_id;
-    public int client_id;
+    public String order_id;
+    public String client_id;
     public String estimated_delivery_date;
-    public int order_car_id;
-    public int order_custodian_id;
+    public String order_car_id;
+    public String order_custodian_id;
     public String order_date;
     public String order_status;
-    public int price;
+    public String price;
 
-    public Order(int orderId,int clientId, String estimatedDeliveryDate, int orderedCarId, int orderCustodianId, String orderDate, String orderStatus, int price) {
+    public Order() {
+    }
+
+    public Order(String orderId, String clientId, String estimatedDeliveryDate, String orderedCarId, String orderCustodianId, String orderDate, String orderStatus, String price) {
         this.order_id = orderId;
         this.client_id = clientId;
         this.estimated_delivery_date = estimatedDeliveryDate;

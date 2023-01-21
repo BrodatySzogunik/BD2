@@ -1,13 +1,15 @@
 package DbModels;
 
 public class Model {
-    public int model_id;
+    public String model_id;
     public String body_type;
     public String brand_name;
     public String model_name;
-    public int price;
+    public String price;
 
-    public Model(int modelId, String bodyType, String brandName, String modelName, int price) {
+    public Model(){}
+
+    public Model(String modelId, String bodyType, String brandName, String modelName, String price) {
         this.model_id = modelId;
         this.body_type = bodyType;
         this.brand_name = brandName;
