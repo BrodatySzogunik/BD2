@@ -1,6 +1,7 @@
 import DbModels.*;
 import Forms.CarConfiguration;
 import Forms.Login;
+import Forms.availableCars;
 import Interfaces.*;
 import Services.CarConfigurationService;
 import Services.DatabaseConnector;
@@ -41,7 +42,9 @@ public class main {
 //        connector.addColor(new Color("Blue", ColorType.SECONDARY,"2000"));
 //        connector.addColor(new Color("Blue", ColorType.INTERIOR,"2000"));
 
-        new Login();
+//        new Login();
+//        connector.addAvailableCar(new AvailableCar("1", "10", "1890"));
+        new availableCars();
 
 //
 //        connector.addCar(new Car("1","1","1","1","1","1","1","1","1",))

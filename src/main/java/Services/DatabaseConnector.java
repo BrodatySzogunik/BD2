@@ -9,9 +9,9 @@ import java.sql.*;
 public class DatabaseConnector {
     Connection connection;
     Statement statement;
-    String url = "jdbc:mysql://localhost:3306/klapexdealer1";
-    String userName = "ADMINISTRATOR";
-    String password = "adminpassword";
+    String url = "jdbc:mysql://25.60.138.167:3306/klapexdealer1";
+    String userName = "newuser";
+    String password = "dupaGnapa";
     Jdbi jdbiConnection;
 
 
@@ -151,6 +151,19 @@ public class DatabaseConnector {
         }
     }
 
+    public ResultSet getAvailableCarsInfo(){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM cars WHERE cars.car_id IN (SELECT car_id FROM available_cars)");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
     public void addModel(Model model){
         if(openConnection()){
             try{
@@ -212,7 +225,7 @@ public class DatabaseConnector {
     public void addAvailableCar(AvailableCar availableCar){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO available_Cars values (null,'"+availableCar.car_id +"','"+availableCar.price+"','"+availableCar.procudtion_year +"')");
+                this.statement.execute("INSERT INTO available_cars values ("+availableCar.car_id +",'"+availableCar.price+"','"+availableCar.production_year +"')");
             }catch (SQLException error){
                 System.out.println(error);
             }

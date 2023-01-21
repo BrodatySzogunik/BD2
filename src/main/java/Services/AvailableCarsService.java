@@ -14,4 +14,14 @@ public class AvailableCarsService {
             return null;
         }
     }
+
+    public static ArrayList<Car> getAvailableCarsInfo() {
+        DatabaseConnector db = new DatabaseConnector();
+        try{
+            return ResultSetConverter.resultSetToArrayList(db.getAvailableCarsInfo(), Car.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
 }
