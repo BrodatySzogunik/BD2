@@ -1,7 +1,8 @@
 package DbModels;
 
 public class Wheel {
-    public int colorId;
+    public int wheel_id;
+    public int color_id;
     public int diameter;
     public int ET;
     public String producer;
@@ -9,8 +10,9 @@ public class Wheel {
     public int width;
     public int price;
 
-    public Wheel(int colorId, int diameter, int ET, String producer, float weight, int width, int price) {
-        this.colorId = colorId;
+    public Wheel(int wheelId, int colorId, int diameter, int ET, String producer, float weight, int width, int price) {
+        this.wheel_id = wheelId;
+        this.color_id = colorId;
         this.diameter = diameter;
         this.ET = ET;
         this.producer = producer;

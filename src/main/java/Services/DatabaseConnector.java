@@ -86,7 +86,7 @@ public class DatabaseConnector {
     public void addModel(Model model){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO models values (null,'"+model.bodyType+"','"+model.brandName+"','"+model.modelName+"','"+model.price+"')");
+                this.statement.execute("INSERT INTO models values (null,'"+model.body_type +"','"+model.brand_name +"','"+model.model_name +"','"+model.price+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -96,7 +96,7 @@ public class DatabaseConnector {
     public void addEngine(Engine engine){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO engines values (null,'"+engine.capacity+"','"+engine.engineCode+"','"+engine.fuel+"','"+engine.horsePower+"','"+engine.power+"','"+engine.torque+"','"+engine.price+"')");
+                this.statement.execute("INSERT INTO engines values (null,'"+engine.capacity+"','"+engine.engine_code +"','"+engine.fuel+"','"+engine.horse_power +"','"+engine.power+"','"+engine.torque+"','"+engine.price+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -106,7 +106,7 @@ public class DatabaseConnector {
     public void addGearbox(Gearbox gearbox){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO gearboxes values (null,'"+gearbox.gearboxCode+"','"+gearbox.gearboxType+"','"+gearbox.gearsNumber+"','"+gearbox.price+"')");
+                this.statement.execute("INSERT INTO gearboxes values (null,'"+gearbox.gearbox_code +"','"+gearbox.gearbox_type +"','"+gearbox.gears_number +"','"+gearbox.price+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -116,7 +116,7 @@ public class DatabaseConnector {
     public void addColor(Color color){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO colors values (null,'"+color.colorName+"','"+color.colorType+"','"+color.price+"')");
+                this.statement.execute("INSERT INTO colors values (null,'"+color.color_name +"','"+color.color_type +"','"+color.price+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -126,7 +126,7 @@ public class DatabaseConnector {
     public void addWheel(Wheel wheel){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO wheels values (null,'"+wheel.colorId+"','"+wheel.diameter+"','"+wheel.ET+"','"+wheel.producer+"','"+wheel.weight+"','"+wheel.width+"','"+wheel.price+"')");
+                this.statement.execute("INSERT INTO wheels values (null,'"+wheel.color_id +"','"+wheel.diameter+"','"+wheel.ET+"','"+wheel.producer+"','"+wheel.weight+"','"+wheel.width+"','"+wheel.price+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -136,7 +136,7 @@ public class DatabaseConnector {
     public void addCar(Car car){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engine_id +"','"+car.gearboxId+"','"+car.interiorColorId+"','"+car.interiorColorId+"','"+car.mainColorId+"','"+car.modelId+"','"+car.wheelId+"')");
+                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engine_id +"','"+car.gearbox_id +"','"+car.interior_color_id +"','"+car.interior_color_id +"','"+car.main_color_id +"','"+car.model_id +"','"+car.wheel_id +"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -147,7 +147,7 @@ public class DatabaseConnector {
     public void addAvailableCar(AvailableCar availableCar){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO available_Cars values (null,'"+availableCar.carId+"','"+availableCar.price+"','"+availableCar.procudtionYear+"')");
+                this.statement.execute("INSERT INTO available_Cars values (null,'"+availableCar.car_id +"','"+availableCar.price+"','"+availableCar.procudtion_year +"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -158,7 +158,7 @@ public class DatabaseConnector {
     public void addClient(Client client){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO clients values (null,'"+client.personId+"')");
+                this.statement.execute("INSERT INTO clients values (null,'"+client.person_id +"')");
             }catch (SQLException error){
                 System.out.println(error);
             }
@@ -169,7 +169,7 @@ public class DatabaseConnector {
     public void addPerson(Person person ){
         if(openConnection()){
             try{
-                this.statement.execute("INSERT INTO persons values (null,'"+person.address+"','"+person.birthDate+"','"+person.firstName+"','"+person.last_name+"','"+person.pesel+"','"+person.password+"','"+person.person_type+"')");
+                this.statement.execute("INSERT INTO persons values (null,'"+person.address+"','"+person.birth_date +"','"+person.first_name +"','"+person.last_name+"','"+person.pesel+"','"+person.password+"','"+person.person_type+"')");
             }catch (SQLException error){
                 System.out.println(error);
             }

@@ -1,18 +1,17 @@
 package DbModels;
 
-import Interfaces.BodyType;
-import Interfaces.BrandName;
-
 public class Model {
-    public String bodyType;
-    public String brandName;
-    public String modelName;
+    public int model_id;
+    public String body_type;
+    public String brand_name;
+    public String model_name;
     public int price;
 
-    public Model(String bodyType, String brandName, String modelName, int price) {
-        this.bodyType = bodyType;
-        this.brandName = brandName;
-        this.modelName = modelName;
+    public Model(int modelId, String bodyType, String brandName, String modelName, int price) {
+        this.model_id = modelId;
+        this.body_type = bodyType;
+        this.brand_name = brandName;
+        this.model_name = modelName;
         this.price = price;
     }
 }

@@ -23,7 +23,7 @@ public class ClientPanel extends  JFrame {
 
     public ClientPanel(Person person){
         setSize(400,500);
-        setTitle(person.firstName+" "+person.last_name);
+        setTitle(person.first_name +" "+person.last_name);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(clientPanel);

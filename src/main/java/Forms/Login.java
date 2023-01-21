@@ -42,7 +42,6 @@ public class Login extends JFrame {
                 try {
                     String personType = result.getString("person_type");
                     System.out.println(personType);
-                    Person person = new Person(result.getString("address"),result.getString("birth_date"),result.getString("first_name"),result.getString("last_name"),"","",result.getString("person_type"));
                     if(personType.equals(PersonType.CLIENT)){
                         new ClientPanel();
                     }else if(personType ==  PersonType.WORKER){
