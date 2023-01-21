@@ -23,4 +23,9 @@ public class Wheel {
         this.width = width;
         this.price = price;
     }
+
+    @Override
+    public String toString(){
+        return this.producer+" "+this.diameter+"'"+this.weight+"kg "+this.width+"'";
+    }
 }

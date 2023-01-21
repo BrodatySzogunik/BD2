@@ -16,4 +16,9 @@ public class Model {
         this.model_name = modelName;
         this.price = price;
     }
+
+    @Override
+    public String toString(){
+        return this.brand_name+" "+this.model_name+" "+this.body_type;
+    }
 }

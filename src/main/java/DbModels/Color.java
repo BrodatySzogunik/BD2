@@ -14,4 +14,9 @@ public class Color {
         this.color_type = colorType;
         this.price = price;
     }
+
+    @Override
+    public String toString(){
+        return this.color_id+":"+this.color_name;
+    }
 }

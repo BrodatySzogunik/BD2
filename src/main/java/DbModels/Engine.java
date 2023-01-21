@@ -23,4 +23,9 @@ public class Engine {
         this.torque = torque;
         this.price = price;
     }
+
+    @Override
+    public String toString(){
+        return this.fuel+" "+this.engine_code+" "+this.horse_power+"HP";
+    }
 }

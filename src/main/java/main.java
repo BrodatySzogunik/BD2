@@ -1,6 +1,8 @@
 import DbModels.*;
+import Forms.CarConfiguration;
 import Forms.Login;
 import Interfaces.*;
+import Services.CarConfigurationService;
 import Services.DatabaseConnector;
 import Services.ResultSetConverter;
 
@@ -24,6 +26,9 @@ public class main {
 //        System.out.println(ResultSetConverter.resultSetToArrayList(connector.getModels(),Model.class).get(1).model_id);
 
 //        System.out.println(Model.class.getConstructor());
+//
+//        System.out.println(CarConfigurationService.getGearboxes().get(0));
+        new CarConfiguration();
 
 
 

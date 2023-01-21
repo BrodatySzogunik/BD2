@@ -82,6 +82,58 @@ public class DatabaseConnector {
             return null;
         }
     }
+    public ResultSet getEngines(){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM engines");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+    public ResultSet getWheels(){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM wheels");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public ResultSet getColors(){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM colors");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public ResultSet getGearboxes(){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM gearboxes");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+
 
     public void addModel(Model model){
         if(openConnection()){

@@ -17,4 +17,9 @@ public class Gearbox {
         this.gears_number = gearsNumber;
         this.price = price;
     }
+
+    @Override
+    public String toString(){
+        return this.gearbox_type+" "+this.gearbox_code+" "+this.gears_number+" gears";
+    }
 }
