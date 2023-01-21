@@ -1,4 +1,6 @@
+import DbModels.*;
 import Forms.Login;
+import Interfaces.*;
 import Services.DatabaseConnector;
 
 import java.sql.*;
@@ -7,7 +9,17 @@ public class main {
     public static void main(String[] args) throws SQLException {
         DatabaseConnector connector = new DatabaseConnector();
 
-        new Login();
+
+        connector.addCar(new Car(Drivetrain.AWD,1,1,1,1,1,1,1));
+//        connector.addWheel(new Wheel(10,20,40,"BBS",20,4,4000));
+//        connector.addColor(new Color("Red", ColorType.PRIMARY,2000));
+//        connector.addGearbox(new Gearbox("HU1",GerboxType.AUTOMATIC,12 ,28000));
+//        connector.addEngine(new Engine(2137,"RB43", Fuel.PETROL,220,110,300,40000));
+//        connector.addModel(new Model(BodyType.COMBI, BrandName.CITROEN, "C5",100000));
+
+//        new Login();
+//
+
 
 
 //        ResultSet response =  connector.loginPerson("21374206966","dupa123");

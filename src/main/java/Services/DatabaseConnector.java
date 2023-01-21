@@ -1,5 +1,7 @@
 package Services;
 
+import DbModels.*;
+
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -80,6 +82,81 @@ public class DatabaseConnector {
             return false;
         }
     }
+
+    public ResultSet getModels(){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM models");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public void addModel(Model model){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO models values (null,'"+model.bodyType+"','"+model.brandName+"','"+model.modelName+"','"+model.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+    public void addEngine(Engine engine){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO engines values (null,'"+engine.capacity+"','"+engine.engineCode+"','"+engine.fuel+"','"+engine.horsePower+"','"+engine.power+"','"+engine.torque+"','"+engine.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+    public void addGearbox(Gearbox gearbox){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO gearboxes values (null,'"+gearbox.gearboxCode+"','"+gearbox.gearboxType+"','"+gearbox.gearsNumber+"','"+gearbox.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+    public void addColor(Color color){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO colors values (null,'"+color.colorName+"','"+color.colorType+"','"+color.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+    public void addWheel(Wheel wheel){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO wheels values (null,'"+wheel.colorId+"','"+wheel.diameter+"','"+wheel.ET+"','"+wheel.producer+"','"+wheel.weight+"','"+wheel.width+"','"+wheel.price+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+    public void addCar(Car car){
+        if(openConnection()){
+            try{
+                this.statement.execute("INSERT INTO cars values (null,'"+car.drivetrain+"','"+car.engineId+"','"+car.gearboxId+"','"+car.interiorColorId+"','"+car.interiorColorId+"','"+car.mainColorId+"','"+car.modelId+"','"+car.wheelId+"')");
+            }catch (SQLException error){
+                System.out.println(error);
+            }
+        }
+    }
+
+
 
 
     public ResultSet loginPerson(String pesel, String userPassword){
