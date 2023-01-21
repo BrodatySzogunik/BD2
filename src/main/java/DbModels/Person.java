@@ -1,7 +1,7 @@
 package DbModels;
 
 public class Person {
-    public int person_id;
+    public String person_id;
     public String address;
     public String birth_date;
     public String first_name;
@@ -10,7 +10,10 @@ public class Person {
     public String password;
     public String person_type;
 
-    public Person(int personId ,String address, String birthDate, String firstName, String last_name, String pesel, String password, String person_type) {
+    public Person() {
+    }
+
+    public Person(String personId , String address, String birthDate, String firstName, String last_name, String pesel, String password, String person_type) {
         this.person_id = personId;
         this.address = address;
         this.birth_date = birthDate;

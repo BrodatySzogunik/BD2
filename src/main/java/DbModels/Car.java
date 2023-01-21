@@ -1,17 +1,20 @@
 package DbModels;
 
 public class Car {
-    public int car_id;
+    public String car_id;
     public String drivetrain;
-    public int engine_id;
-    public int gearbox_id;
-    public int additional_color_id;
-    public int interior_color_id;
-    public int main_color_id;
-    public int model_id;
-    public int wheel_id;
+    public String engine_id;
+    public String gearbox_id;
+    public String additional_color_id;
+    public String interior_color_id;
+    public String main_color_id;
+    public String model_id;
+    public String wheel_id;
 
-    public Car(String drivetrain, int engineId, int gearboxId, int additionalColorId, int interiorColorId, int mainColorId, int modelId, int wheelId) {
+    public Car() {
+    }
+
+    public Car(String drivetrain, String engineId, String gearboxId, String additionalColorId, String interiorColorId, String mainColorId, String modelId, String wheelId) {
         this.drivetrain = drivetrain;
         this.engine_id = engineId;
         this.gearbox_id = gearboxId;

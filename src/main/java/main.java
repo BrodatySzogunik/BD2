@@ -2,11 +2,12 @@ import DbModels.*;
 import Forms.Login;
 import Interfaces.*;
 import Services.DatabaseConnector;
+import Services.ResultSetConverter;
 
 import java.sql.*;
 
 public class main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
         DatabaseConnector connector = new DatabaseConnector();
 
 
@@ -18,8 +19,11 @@ public class main {
 //        connector.addEngine(new Engine(2137,"RB43", Fuel.PETROL,220,110,300,40000));
 //        connector.addModel(new Model(BodyType.COMBI, BrandName.CITROEN, "C5",100000));
 
-        new Login();
+//        new Login();
 //
+//        System.out.println(ResultSetConverter.resultSetToArrayList(connector.getModels(),Model.class).get(1).model_id);
+
+//        System.out.println(Model.class.getConstructor());
 
 
 

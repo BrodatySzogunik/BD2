@@ -1,16 +1,19 @@
 package DbModels;
 
 public class Engine {
-    public int engine_id;
-    public int capacity;
+    public String engine_id;
+    public String capacity;
     public String engine_code;
     public String fuel;
-    public int horse_power;
-    public int power;
-    public int torque;
-    public int price;
+    public String horse_power;
+    public String power;
+    public String torque;
+    public String price;
 
-    public Engine(int engine_id, int capacity, String engineCode, String fuel, int horsePower, int power, int torque, int price) {
+    public Engine() {
+    }
+
+    public Engine(String engine_id, String capacity, String engineCode, String fuel, String horsePower, String power, String torque, String price) {
         this.engine_id = engine_id;
         this.capacity = capacity;
         this.engine_code = engineCode;

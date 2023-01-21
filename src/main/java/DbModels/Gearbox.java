@@ -1,13 +1,16 @@
 package DbModels;
 
 public class Gearbox {
-    public int gearbox_id;
+    public String gearbox_id;
     public String gearbox_code;
     public String gearbox_type;
-    public int gears_number;
-    public int price;
+    public String gears_number;
+    public String price;
 
-    public Gearbox(int gearboxId,String gearboxCode, String gearboxType, int gearsNumber, int price) {
+    public Gearbox() {
+    }
+
+    public Gearbox(String gearboxId, String gearboxCode, String gearboxType, String gearsNumber, String price) {
         this.gearbox_id = gearboxId;
         this.gearbox_code = gearboxCode;
         this.gearbox_type = gearboxType;
