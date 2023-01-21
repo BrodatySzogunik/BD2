@@ -38,7 +38,7 @@ public class Login extends JFrame {
                 if(personType.equals(PersonType.CLIENT)){
                     new ClientPanel(person);
                 }else if(personType ==  PersonType.WORKER){
-                    new WorkerPanel();
+                    new WorkerPanel(person);
                 }
             }
         });

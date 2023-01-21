@@ -14,6 +14,10 @@ public class Car {
     public Car() {
     }
 
+    @Override
+    public String toString(){
+        return ("Position: "+this.car_id+", Drivetrian: "+this.drivetrain+", Engine: "+this.engine_id+", Gearbox: "+this.gearbox_id+", Additional color: "+this.additional_color_id+", Interior color: "+this.interior_color_id+", Main color: "+this.main_color_id+", Model: "+this.model_id+", Wheels: "+this.wheel_id);
+    }
     public Car(String drivetrain, String engineId, String gearboxId, String additionalColorId, String interiorColorId, String mainColorId, String modelId, String wheelId) {
         this.drivetrain = drivetrain;
         this.engine_id = engineId;
