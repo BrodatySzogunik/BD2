@@ -1,9 +1,10 @@
 package Forms;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class AvailableCarsWorker {
-    private JPanel panel1;
+public class AvailableCarsWorker extends JFrame{
     private JScrollPane listas;
     private JButton returnButton;
     private JComboBox listMode;
@@ -26,4 +27,24 @@ public class AvailableCarsWorker {
     private JTextField paramText8;
     private JTextField paramText9;
     private JButton addButton;
+    private JPanel availableCarsWorker;
+
+    public AvailableCarsWorker(){
+        setSize(500,500);
+        setTitle("login");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setContentPane(availableCarsWorker);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        reutrnButtonListener();
+    }
+
+    private void reutrnButtonListener(){
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+    }
 }

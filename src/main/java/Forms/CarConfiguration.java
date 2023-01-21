@@ -1,6 +1,8 @@
 package Forms;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CarConfiguration extends JFrame{
     private JComboBox firstColor;
@@ -17,11 +19,21 @@ public class CarConfiguration extends JFrame{
     private JTextField priceTextField;
 
     public CarConfiguration(){
-        setSize(200,200);
-        setTitle("Car configuration");
+        setSize(500,500);
+        setTitle("login");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(CarConfiguration);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        reutrnButtonListener();
+    }
 
+    private void reutrnButtonListener(){
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 }
