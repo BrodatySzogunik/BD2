@@ -1,8 +1,11 @@
 package Services;
 
 import DbModels.*;
+import Interfaces.ColorType;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarConfigurationService {
 
@@ -51,6 +54,18 @@ public class CarConfigurationService {
         DatabaseConnector db = new DatabaseConnector();
         try{
             return ResultSetConverter.resultSetToArrayList(db.getColors(), Color.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public static ArrayList<Color> getColorsByType(String type) {
+        DatabaseConnector db = new DatabaseConnector();
+        try{
+            ArrayList<Color> result = ResultSetConverter.resultSetToArrayList(db.getColors(), Color.class);
+            List<Color> filterResult = result.stream().filter(color -> color.color_type.equals(type)).collect(Collectors.toList());
+            return new ArrayList<Color>(filterResult);
         }catch (Exception e){
             System.out.println(e);
             return null;
