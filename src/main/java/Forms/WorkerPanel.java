@@ -18,12 +18,14 @@ public class WorkerPanel extends JFrame{
     public WorkerPanel(Person person){
         this.person = person;
         setSize(500,500);
-        setTitle("Worker: ");
+        setTitle("Worker: "+this.person.first_name +" "+this.person.last_name);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(WorkerPanel);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         logOutButtonListener();
+        initializeCreateClientAccountButton();
+
     }
 
     private void logOutButtonListener(){
@@ -31,6 +33,15 @@ public class WorkerPanel extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+    }
+
+    private void initializeCreateClientAccountButton(){
+        createClientAccountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CreateClientAccount();
             }
         });
     }
