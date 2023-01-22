@@ -30,6 +30,8 @@ public class WorkerPanel extends JFrame{
         initializeEditAvailableOffersButton();
         initializeEditOrdersButton();
         initializeWorkerList();
+        initializeWarrantyClaimsButton();
+
     }
 
     private void logOutButtonListener(){
@@ -69,6 +71,14 @@ public class WorkerPanel extends JFrame{
         });
     }
 
+    private void initializeWarrantyClaimsButton(){
+        warrantyClaimsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new WarrantyWorker();
+            }
+        });
+    }
     private void initializeWorkerList(){
         workersListButton.addActionListener(new ActionListener() {
             @Override

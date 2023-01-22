@@ -331,6 +331,19 @@ public class DatabaseConnector {
         }
     }
 
+    public ResultSet getOrdersByStatus(String Status){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM orders WHERE order_status = '"+Status+"'");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
     public ResultSet getWorkersByRole(String jobPosition){
         if (openConnection()){
             try{

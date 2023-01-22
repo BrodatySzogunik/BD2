@@ -14,6 +14,15 @@ public class OrderService {
         }
         return null;
     };
+    public static ArrayList<Order> getOrdersByStatus(String Status){
+        DatabaseConnector db = new DatabaseConnector();
+        try{
+            return ResultSetConverter.resultSetToArrayList(db.getOrdersByStatus(Status),Order.class);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    };
     public static ArrayList<Order> getOrders(){
         DatabaseConnector db = new DatabaseConnector();
         try{
