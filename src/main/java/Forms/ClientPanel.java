@@ -42,6 +42,7 @@ public class ClientPanel extends  JFrame {
         initializeConfigureCarButton();
         initializeList();
         logOutButtonListener();
+        warrantyClaimButtonListener();
         ViewAvailableCarsButtonListener();
         this.setContentPane(clientPanel);
         this.setVisible(true);
@@ -53,6 +54,17 @@ public class ClientPanel extends  JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 new Login();
+            }
+        });
+    }
+
+    private void warrantyClaimButtonListener(){
+        warrantyClaimButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrderService.updateOrderStatus(((Order)list1.getSelectedValue()).order_id,"WARRANTY_CLAIM");
+                model.remove(list1.getSelectedIndex());
+                initializeList();
             }
         });
     }
