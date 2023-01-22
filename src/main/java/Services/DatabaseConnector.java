@@ -9,7 +9,7 @@ import java.sql.*;
 public class DatabaseConnector {
     Connection connection;
     Statement statement;
-    String url = "jdbc:mysql://localhost:3306/klapexdealer1";
+    String url = "jdbc:mysql://25.60.138.167:3306/klapexdealer1";
     String userName = "newuser";
     String password = "dupaGnapa";
     Jdbi jdbiConnection;
@@ -151,10 +151,17 @@ public class DatabaseConnector {
         }
     }
 
+    public void removeAvailableCar(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM available_cars WHERE car_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
     public ResultSet getAvailableCarsInfo(){
         if (openConnection()){
             try{
-                return this.statement.executeQuery("SELECT models.brand_name, models.model_name, models.body_type, engines.capacity, engines.fuel, engines.horse_power, gearboxes.gearbox_type, gearboxes.gears_number, wheels.diameter, colors.color_name FROM cars JOIN models ON cars.model_id = models.model_id JOIN engines ON cars.engine_id = engines.engine_id JOIN gearboxes ON cars.gearbox_id = gearboxes.gearbox_id JOIN wheels ON cars.wheel_id = wheels.wheel_id JOIN colors ON cars.main_color_id = colors.color_id WHERE cars.car_id IN (SELECT car_id FROM available_cars)");
+                return this.statement.executeQuery("SELECT available_cars.car_id, available_cars.price, available_cars.production_year, models.brand_name, models.model_name, models.body_type, engines.capacity, engines.fuel, engines.horse_power, gearboxes.gearbox_type, gearboxes.gears_number, wheels.diameter, colors.color_name FROM cars JOIN available_cars ON cars.car_id = available_cars.car_id JOIN models ON cars.model_id = models.model_id JOIN engines ON cars.engine_id = engines.engine_id JOIN gearboxes ON cars.gearbox_id = gearboxes.gearbox_id JOIN wheels ON cars.wheel_id = wheels.wheel_id JOIN colors ON cars.main_color_id = colors.color_id WHERE cars.car_id IN (SELECT car_id FROM available_cars)");
             }catch (SQLException error){
                 System.out.println(error);
                 return null;

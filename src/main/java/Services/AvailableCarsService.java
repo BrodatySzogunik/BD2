@@ -15,6 +15,11 @@ public class AvailableCarsService {
         }
     }
 
+    public static void removeAvailableCar(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeAvailableCar(Id);
+    }
+
     public static ArrayList<CarInfo> getAvailableCarsInfo() {
         DatabaseConnector db = new DatabaseConnector();
         try{

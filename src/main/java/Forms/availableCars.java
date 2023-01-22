@@ -47,7 +47,9 @@ public class availableCars extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 int index = list1.getSelectedIndex();
+                CarInfo value = (CarInfo) list1.getSelectedValue();
                 model.remove(index);
+                AvailableCarsService.removeAvailableCar(value.getId());
             }
         });
     }
