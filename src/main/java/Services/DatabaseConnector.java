@@ -318,6 +318,19 @@ public class DatabaseConnector {
         }
     }
 
+    public ResultSet getOrdersById(String clientId){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM orders WHERE client_id = '"+clientId+"'");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
     public ResultSet getWorkersByRole(String jobPosition){
         if (openConnection()){
             try{

@@ -30,6 +30,6 @@ public class Order {
 
     @Override
     public String toString(){
-        return this.order_id+". status: "+this.order_status+" delivery date: "+this.estimated_delivery_date+" custodianId: "+this.order_custodian_id;
+        return "Order ID: "+this.order_id+" , Status: "+this.order_status+" , Delivery date: "+this.estimated_delivery_date+" , Custodian Id: "+this.order_custodian_id;
     }
 }

@@ -5,6 +5,15 @@ import DbModels.Order;
 import java.util.ArrayList;
 
 public class OrderService {
+    public static ArrayList<Order> getOrdersById(String ClientId){
+        DatabaseConnector db = new DatabaseConnector();
+        try{
+            return ResultSetConverter.resultSetToArrayList(db.getOrdersById(ClientId),Order.class);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    };
     public static ArrayList<Order> getOrders(){
         DatabaseConnector db = new DatabaseConnector();
         try{

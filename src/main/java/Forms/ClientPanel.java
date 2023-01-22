@@ -1,6 +1,10 @@
 package Forms;
 
+import DbModels.CarInfo;
 import DbModels.Person;
+import DbModels.Order;
+import Services.AvailableCarsService;
+import Services.OrderService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +17,8 @@ public class ClientPanel extends  JFrame {
     private JButton warrantyClaimButton;
     private JButton logOutButton;
     private JPanel clientPanel;
-    private JTextField textField1;
+    private JList list1;
+    DefaultListModel model = new DefaultListModel();
     private Person person = null;
 
     public ClientPanel(){
@@ -23,6 +28,7 @@ public class ClientPanel extends  JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(clientPanel);
         this.configureCarButton.setEnabled(false);
+        logOutButtonListener();
         this.setVisible(true);
     }
 
@@ -32,11 +38,24 @@ public class ClientPanel extends  JFrame {
         setTitle("Client: "+person.first_name +" "+person.last_name);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setContentPane(clientPanel);
+        list1.setModel(model);
         initializeConfigureCarButton();
+        initializeList();
+        logOutButtonListener();
+        ViewAvailableCarsButtonListener();
+        this.setContentPane(clientPanel);
         this.setVisible(true);
     }
 
+    private void logOutButtonListener(){
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new Login();
+            }
+        });
+    }
 
     private void initializeConfigureCarButton(){
         this.configureCarButton.addActionListener(new ActionListener() {
@@ -47,6 +66,19 @@ public class ClientPanel extends  JFrame {
         });
     }
 
+    private void ViewAvailableCarsButtonListener(){
+        this.configureCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new availableCars();
+            }
+        });
+    }
 
+    private void initializeList(){
+        for (Order orders : OrderService.getOrdersById(person.getId())) {
+            model.addElement(orders);
+        }
+    }
 
 }
