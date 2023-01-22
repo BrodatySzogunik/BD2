@@ -34,6 +34,8 @@ public class PlacedOrders extends JFrame{
         initializeStatusData();
         initializeCustodianData();
         initializeChangeStatus();
+        initializeChangeEstimatedDate();
+        initializeChangeCustodian();
     }
 
     private void initializeChangeStatus(){
@@ -41,6 +43,26 @@ public class PlacedOrders extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 OrderService.updateOrderStatus(((Order)list1.getSelectedValue()).order_id,orderStatus.getSelectedItem().toString());
+                initializeList();
+            }
+        });
+    }
+
+    private void initializeChangeEstimatedDate(){
+        changeEstimatedDeliveryDateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrderService.updateOrderEstimatedDeliveryDate(((Order)list1.getSelectedValue()).order_id,estimatedInput.getText());
+                initializeList();
+            }
+        });
+    }
+
+    private void initializeChangeCustodian(){
+        changeCustodianButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OrderService.updateOrderCustodian(((Order)list1.getSelectedValue()).order_id,((Worker)custodianId.getSelectedItem()).worker_id);
                 initializeList();
             }
         });

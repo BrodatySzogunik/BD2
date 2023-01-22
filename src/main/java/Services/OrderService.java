@@ -26,7 +26,7 @@ public class OrderService {
     public static void updateOrderEstimatedDeliveryDate(String orderId, String newValue){
         DatabaseConnector db = new DatabaseConnector();
         try{
-            db.updateOrder("order_custodian_id",newValue, orderId);
+            db.updateOrder("estimated_delivery_date",newValue, orderId);
         }catch (Exception e){
             System.out.println(e);
         }
@@ -34,7 +34,7 @@ public class OrderService {
     public static void updateOrderCustodian(String orderId, String newValue){
         DatabaseConnector db = new DatabaseConnector();
         try{
-            db.updateOrder("estimated_deliveryDate",newValue, orderId);
+            db.updateOrder("order_custodian_id",newValue, orderId);
         }catch (Exception e){
             System.out.println(e);
         }
