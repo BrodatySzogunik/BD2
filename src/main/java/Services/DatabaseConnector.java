@@ -344,9 +344,30 @@ public class DatabaseConnector {
         }
     }
 
+    public ResultSet getWorkers(){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM workers");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
     public void updateOrder(String columnName, String newValue, String orderId){
         jdbiConnection.withHandle(handle -> {
             return handle.createUpdate("UPDATE orders SET "+columnName+" = '"+newValue+"' WHERE order_id = "+orderId+"")
+                    .execute();
+        });
+    }
+
+
+    public void updateWorkerJobPosition( String newValue, String workerId){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("UPDATE workers SET job_position = '"+newValue+"' WHERE worker_id = "+workerId+"")
                     .execute();
         });
     }

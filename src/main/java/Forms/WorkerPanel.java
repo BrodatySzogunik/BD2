@@ -1,6 +1,7 @@
 package Forms;
 
 import DbModels.Person;
+import Interfaces.PersonType;
 import com.mysql.cj.log.Log;
 
 import javax.swing.*;
@@ -28,7 +29,7 @@ public class WorkerPanel extends JFrame{
         initializeCreateClientAccountButton();
         initializeEditAvailableOffersButton();
         initializeEditOrdersButton();
-
+        initializeWorkerList();
     }
 
     private void logOutButtonListener(){
@@ -45,7 +46,7 @@ public class WorkerPanel extends JFrame{
         createClientAccountButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CreateClientAccount();
+                new CreateClientAccount(PersonType.CLIENT);
             }
         });
     }
@@ -64,6 +65,15 @@ public class WorkerPanel extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new PlacedOrders();
+            }
+        });
+    }
+
+    private void initializeWorkerList(){
+        workersListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new WorkerList();
             }
         });
     }

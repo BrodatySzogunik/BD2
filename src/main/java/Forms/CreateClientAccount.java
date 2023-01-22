@@ -23,43 +23,20 @@ public class CreateClientAccount extends JFrame{
     private JTextField building_number_text;
     private JPasswordField password_pass_text;
     private JPanel createClientAccount;
-    private JRadioButton clientRadioButton;
-    private JRadioButton workerRadioButton;
-    private ButtonGroup buttonGroup;
     private String selectedPersonType;
 
-    public CreateClientAccount(){
+    public CreateClientAccount(String selectedPersonType){
+        this.selectedPersonType = selectedPersonType;
         setSize(500,500);
         setTitle("Create Client Account");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setContentPane(createClientAccount);
-        initializeRadioButtons();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         reutrnButtonListener();
-        initializeRadioButtons();
         initializeProceedButtonListener();
     }
 
-    private void initializeRadioButtons(){
-        this.buttonGroup = new ButtonGroup();
-        clientRadioButton.setText(PersonType.CLIENT);
-        workerRadioButton.setText(PersonType.WORKER);
-        clientRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                selectedPersonType = clientRadioButton.getText();
-            }
-        });
-        workerRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                selectedPersonType = workerRadioButton.getText();
-            }
-        });
-        buttonGroup.add(clientRadioButton);
-        buttonGroup.add(workerRadioButton);
-    }
 
     private void reutrnButtonListener(){
         returnButton.addActionListener(new ActionListener() {
