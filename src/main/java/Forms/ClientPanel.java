@@ -79,7 +79,7 @@ public class ClientPanel extends  JFrame {
     }
 
     private void ViewAvailableCarsButtonListener(){
-        this.configureCarButton.addActionListener(new ActionListener() {
+        this.viewAvailableCarsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new availableCars();
