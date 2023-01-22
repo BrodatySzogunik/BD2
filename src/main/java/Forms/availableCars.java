@@ -1,7 +1,7 @@
 package Forms;
 
 import DbModels.AvailableCar;
-import DbModels.Car;
+import DbModels.CarInfo;
 import Interfaces.PersonType;
 import Services.AvailableCarsService;
 import Services.DatabaseConnector;
@@ -42,7 +42,7 @@ public class availableCars extends JFrame{
     }
 
     private void initializeList(){
-        for (Car avCar : AvailableCarsService.getAvailableCarsInfo()) {
+        for (CarInfo avCar : AvailableCarsService.getAvailableCarsInfo()) {
             model.addElement(avCar);
         }
     }

@@ -42,8 +42,8 @@ public class main {
 //        connector.addColor(new Color("Yellow", ColorType.PRIMARY,"2000"));
 //        connector.addColor(new Color("Blue", ColorType.SECONDARY,"2000"));
 //        connector.addColor(new Color("Blue", ColorType.INTERIOR,"2000"));
-
-        new Login();
+new availableCars();
+//        new Login();
 //        connector.addAvailableCar(new AvailableCar("1", "10", "1890"));
 //        new availableCars();
 //        new EditConfigurationOptions();

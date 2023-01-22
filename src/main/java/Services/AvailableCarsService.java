@@ -15,10 +15,10 @@ public class AvailableCarsService {
         }
     }
 
-    public static ArrayList<Car> getAvailableCarsInfo() {
+    public static ArrayList<CarInfo> getAvailableCarsInfo() {
         DatabaseConnector db = new DatabaseConnector();
         try{
-            return ResultSetConverter.resultSetToArrayList(db.getAvailableCarsInfo(), Car.class);
+            return ResultSetConverter.resultSetToArrayList(db.getAvailableCarsInfo(), CarInfo.class);
         }catch (Exception e){
             System.out.println(e);
             return null;
