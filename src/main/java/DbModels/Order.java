@@ -27,4 +27,9 @@ public class Order {
     public String getId(){
         return  this.order_id;
     }
+
+    @Override
+    public String toString(){
+        return this.order_id+" status:"+this.order_status;
+    }
 }

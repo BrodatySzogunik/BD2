@@ -17,4 +17,9 @@ public class Worker {
     public String getId(){
         return  this.worker_id;
     }
+
+    @Override
+    public String toString(){
+        return this.worker_id+" "+this.job_position;
+    }
 }

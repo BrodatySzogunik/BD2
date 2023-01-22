@@ -9,7 +9,7 @@ import java.sql.*;
 public class DatabaseConnector {
     Connection connection;
     Statement statement;
-    String url = "jdbc:mysql://25.60.138.167:3306/klapexdealer1";
+    String url = "jdbc:mysql://localhost:3306/klapexdealer1";
     String userName = "newuser";
     String password = "dupaGnapa";
     Jdbi jdbiConnection;
@@ -296,6 +296,39 @@ public class DatabaseConnector {
                 System.out.println(error);
             }
         }
+    }
+
+    public ResultSet getOrders(){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM orders");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
+    public ResultSet getWorkersByRole(String jobPosition){
+        if (openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM workers WHERE job_position = '"+jobPosition+"'");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else {
+            return null;
+        }
+    }
+
+    public void updateOrder(String columnName, String newValue, String orderId){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("UPDATE orders SET "+columnName+" = '"+newValue+"' WHERE order_id = "+orderId+"")
+                    .execute();
+        });
     }
 
     public ResultSet loginPerson(String pesel, String userPassword){
