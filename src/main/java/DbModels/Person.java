@@ -23,4 +23,8 @@ public class Person {
         this.password = password;
         this.person_type = person_type;
     }
+
+    public String getId(){
+        return  this.person_id;
+    }
 }

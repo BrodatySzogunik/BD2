@@ -23,4 +23,8 @@ public class Order {
         this.order_status = orderStatus;
         this.price = price;
     }
+
+    public String getId(){
+        return  this.order_id;
+    }
 }

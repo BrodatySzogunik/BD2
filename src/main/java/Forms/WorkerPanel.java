@@ -25,6 +25,7 @@ public class WorkerPanel extends JFrame{
         this.setLocationRelativeTo(null);
         logOutButtonListener();
         initializeCreateClientAccountButton();
+        initializeEditAvailableOffersButton();
 
     }
 
@@ -45,4 +46,14 @@ public class WorkerPanel extends JFrame{
             }
         });
     }
+
+    private void initializeEditAvailableOffersButton(){
+        editAvailableOffersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EditConfigurationOptions();
+            }
+        });
+    }
+
 }

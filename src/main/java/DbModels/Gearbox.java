@@ -22,4 +22,9 @@ public class Gearbox {
     public String toString(){
         return this.gearbox_type+" "+this.gearbox_code+" "+this.gears_number+" gears";
     }
+
+    public String getId(){
+        return  this.gearbox_id;
+    }
+
 }

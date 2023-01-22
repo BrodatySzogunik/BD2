@@ -21,4 +21,8 @@ public class Model {
     public String toString(){
         return this.brand_name+" "+this.model_name+" "+this.body_type;
     }
+
+    public String getId(){
+        return  this.model_id;
+    }
 }

@@ -28,4 +28,9 @@ public class Wheel {
     public String toString(){
         return this.producer+" "+this.diameter+"'"+this.weight+"kg "+this.width+"'";
     }
+
+    public String getId(){
+        return  this.wheel_id;
+    }
+
 }

@@ -19,4 +19,9 @@ public class Color {
     public String toString(){
         return this.color_id+":"+this.color_name;
     }
+
+    public String getId(){
+        return  this.color_id;
+    }
+
 }

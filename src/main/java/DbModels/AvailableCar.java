@@ -17,4 +17,8 @@ public class AvailableCar {
         this.price = price;
         this.production_year = procudtion_year;
     }
+
+    public String getId(){
+        return  this.car_id;
+    }
 }

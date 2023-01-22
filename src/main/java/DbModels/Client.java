@@ -11,4 +11,8 @@ public class Client {
         this.client_id = client_id;
         this.person_id = person_id;
     }
+
+    public String getId(){
+        return  this.client_id;
+    }
 }

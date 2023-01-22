@@ -87,4 +87,54 @@ public class CarConfigurationService {
     }
 
 
+    public static void removeEngine(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeEngine(Id);
+    }
+
+
+    public static void removeWheel(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeWheel(Id);
+    }
+
+    public static void removeColor(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeColor(Id);
+    }
+
+    public static void removeModel(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeModel(Id);
+    }
+
+    public static void removeGearBox(String Id){
+        DatabaseConnector db = new DatabaseConnector();
+        db.removeGearBox(Id);
+    }
+
+    public static void addColor(String colorName, String colorType, String price){
+        DatabaseConnector db = new DatabaseConnector();
+        db.addColor(new Color(colorName, colorType, price));
+    }
+
+    public static void addEngine(String capacity, String engineCode, String fuel, String horsePower, String power, String torque, String price) {
+        DatabaseConnector db = new DatabaseConnector();
+        db.addEngine(new Engine(null, capacity,engineCode,fuel,horsePower,power,torque,price));
+    }
+
+    public static void addModel( String bodyType, String brandName, String modelName, String price) {
+        DatabaseConnector db = new DatabaseConnector();
+        db.addModel(new Model(null, bodyType, brandName, modelName,price));
+    }
+
+    public static void addGearBox( String gearboxCode, String gearboxType, String gearsNumber, String price) {
+        DatabaseConnector db = new DatabaseConnector();
+        db.addGearbox(new Gearbox(null, gearboxCode, gearboxType , gearsNumber,price));
+    }
+
+    public static void addWheel( String colorId, String diameter, String ET, String producer, String weight, String width, String price) {
+        DatabaseConnector db = new DatabaseConnector();
+        db.addWheel(new Wheel(null,colorId, diameter, ET, producer, weight, width, price ));
+    }
 }

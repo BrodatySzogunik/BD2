@@ -13,4 +13,8 @@ public class Worker {
         this.person_id = person_id;
         this.job_position = job_position;
     }
+
+    public String getId(){
+        return  this.worker_id;
+    }
 }

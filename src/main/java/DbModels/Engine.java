@@ -28,4 +28,9 @@ public class Engine {
     public String toString(){
         return this.fuel+" "+this.engine_code+" "+this.horse_power+"HP";
     }
+
+    public String getId(){
+        return  this.engine_id;
+    }
+
 }

@@ -222,6 +222,42 @@ public class DatabaseConnector {
         });
     }
 
+    public void removeEngine(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM engines WHERE engine_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
+
+    public void removeWheel(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM wheels WHERE wheel_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
+    public void removeModel(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM models WHERE model_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
+    public void removeGearBox(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM gearboxes WHERE gearbox_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
+    public void removeColor(String id){
+        jdbiConnection.withHandle(handle -> {
+            return handle.createUpdate("DELETE FROM colors WHERE color_id = '"+id+"'")
+                    .execute();
+        });
+    }
+
     public void addAvailableCar(AvailableCar availableCar){
         if(openConnection()){
             try{

@@ -28,4 +28,8 @@ public class Car {
         this.model_id = modelId;
         this.wheel_id = wheelId;
     }
+
+    public String getId(){
+        return  this.car_id;
+    }
 }
