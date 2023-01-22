@@ -28,6 +28,7 @@ public class availableCars extends JFrame{
         list1.setModel(model);
         initializeList();
         reutrnButtonListener();
+        buyButtonListener();
         this.setContentPane(availableCars);
         this.setVisible(true);
     }
@@ -37,6 +38,16 @@ public class availableCars extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+    }
+
+    void buyButtonListener(){
+        buyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int index = list1.getSelectedIndex();
+                model.remove(index);
             }
         });
     }
