@@ -1,7 +1,7 @@
 package Forms;
 
 import DbModels.AvailableCar;
-import DbModels.Car;
+import DbModels.CarInfo;
 import Interfaces.PersonType;
 import Services.AvailableCarsService;
 import Services.DatabaseConnector;
@@ -28,6 +28,7 @@ public class availableCars extends JFrame{
         list1.setModel(model);
         initializeList();
         reutrnButtonListener();
+        buyButtonListener();
         this.setContentPane(availableCars);
         this.setVisible(true);
     }
@@ -41,8 +42,18 @@ public class availableCars extends JFrame{
         });
     }
 
+    void buyButtonListener(){
+        buyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int index = list1.getSelectedIndex();
+                model.remove(index);
+            }
+        });
+    }
+
     private void initializeList(){
-        for (Car avCar : AvailableCarsService.getAvailableCarsInfo()) {
+        for (CarInfo avCar : AvailableCarsService.getAvailableCarsInfo()) {
             model.addElement(avCar);
         }
     }

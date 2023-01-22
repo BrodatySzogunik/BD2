@@ -154,7 +154,7 @@ public class DatabaseConnector {
     public ResultSet getAvailableCarsInfo(){
         if (openConnection()){
             try{
-                return this.statement.executeQuery("SELECT * FROM cars WHERE cars.car_id IN (SELECT car_id FROM available_cars)");
+                return this.statement.executeQuery("SELECT models.brand_name, models.model_name, models.body_type, engines.capacity, engines.fuel, engines.horse_power, gearboxes.gearbox_type, gearboxes.gears_number, wheels.diameter, colors.color_name FROM cars JOIN models ON cars.model_id = models.model_id JOIN engines ON cars.engine_id = engines.engine_id JOIN gearboxes ON cars.gearbox_id = gearboxes.gearbox_id JOIN wheels ON cars.wheel_id = wheels.wheel_id JOIN colors ON cars.main_color_id = colors.color_id WHERE cars.car_id IN (SELECT car_id FROM available_cars)");
             }catch (SQLException error){
                 System.out.println(error);
                 return null;
