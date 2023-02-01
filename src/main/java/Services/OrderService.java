@@ -1,7 +1,9 @@
 package Services;
 
 import DbModels.Order;
+import Interfaces.Status;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class OrderService {
@@ -32,6 +34,16 @@ public class OrderService {
         }
         return null;
     };
+
+    public static void addNewOrderShort(String clientId, String carId, String price){
+        DatabaseConnector db = new DatabaseConnector();
+        try{
+            db.addOrder(new Order(null,clientId,null,carId,null, LocalDate.now().toString(), Status.NEW,price));
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
 
     public static void updateOrderStatus(String orderId, String newValue){
         DatabaseConnector db = new DatabaseConnector();

@@ -171,6 +171,19 @@ public class DatabaseConnector {
         }
     }
 
+    public ResultSet getClient(int Clientid){
+        if(openConnection()){
+            try{
+                return this.statement.executeQuery("SELECT * FROM clients WHERE person_id = '"+Clientid+"'");
+            }catch (SQLException error){
+                System.out.println(error);
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
     public void addModel(Model model){
         if(openConnection()){
             try{

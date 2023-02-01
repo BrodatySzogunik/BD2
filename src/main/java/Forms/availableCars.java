@@ -2,15 +2,20 @@ package Forms;
 
 import DbModels.AvailableCar;
 import DbModels.CarInfo;
+import DbModels.Client;
+import DbModels.Person;
 import Interfaces.PersonType;
 import Services.AvailableCarsService;
 import Services.DatabaseConnector;
+import Services.OrderService;
+import Services.PersonService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class availableCars extends JFrame{
     private JPanel availableCars;
@@ -20,7 +25,10 @@ public class availableCars extends JFrame{
     private JList list1;
     DefaultListModel model = new DefaultListModel();
 
-    public availableCars(){
+    private Person person = null;
+
+    public availableCars(Person person){
+        this.person = person;
         setSize(720,720);
         setTitle("Available Cars");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -50,6 +58,7 @@ public class availableCars extends JFrame{
                 CarInfo value = (CarInfo) list1.getSelectedValue();
                 model.remove(index);
                 AvailableCarsService.removeAvailableCar(value.getId());
+                OrderService.addNewOrderShort(person.person_id, value.car_id, value.price);
             }
         });
     }

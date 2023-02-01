@@ -74,12 +74,12 @@ public class CarConfigurationService {
         }
     }
 
-    public static void addNewOrder(String drivetrain, String engineId, String gearboxId, String additionalColorId, String interiorColorId, String mainColorId, String modelId, String wheelId, String clientId){
+    public static void addNewOrder(String drivetrain, String engineId, String gearboxId, String additionalColorId, String interiorColorId, String mainColorId, String modelId, String wheelId, String clientId,int price){
         DatabaseConnector db = new DatabaseConnector();
         Car car = new Car(drivetrain,engineId,gearboxId,additionalColorId,interiorColorId,mainColorId,modelId,wheelId);
         String newCarId = db.addCar(car);
         try{
-            db.addOrder(new Order(null,clientId,null,newCarId,null,DateService.ToString(LocalDate.now()), Status.NEW,"10"));
+            db.addOrder(new Order(null,clientId,null,newCarId,null,LocalDate.now().toString(), Status.NEW,Integer.toString(price)));
         }catch (Exception e){
             System.out.println(e);
         }

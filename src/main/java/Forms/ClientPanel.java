@@ -18,6 +18,7 @@ public class ClientPanel extends  JFrame {
     private JButton logOutButton;
     private JPanel clientPanel;
     private JList list1;
+    private JButton refreshButton;
     DefaultListModel model = new DefaultListModel();
     private Person person = null;
 
@@ -34,7 +35,7 @@ public class ClientPanel extends  JFrame {
 
     public ClientPanel(Person person){
         this.person = person;
-        setSize(400,500);
+        setSize(800,500);
         setTitle("Client: "+person.first_name +" "+person.last_name);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -43,6 +44,7 @@ public class ClientPanel extends  JFrame {
         initializeList();
         logOutButtonListener();
         warrantyClaimButtonListener();
+        initializeRefreshButton();
         ViewAvailableCarsButtonListener();
         this.setContentPane(clientPanel);
         this.setVisible(true);
@@ -82,12 +84,21 @@ public class ClientPanel extends  JFrame {
         this.viewAvailableCarsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new availableCars();
+                new availableCars(person);
+            }
+        });
+    }
+    private void initializeRefreshButton(){
+        this.refreshButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                initializeList();
             }
         });
     }
 
     private void initializeList(){
+        model.clear();
         for (Order orders : OrderService.getOrdersById(person.getId())) {
             model.addElement(orders);
         }
